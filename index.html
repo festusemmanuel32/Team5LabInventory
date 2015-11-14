@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+     <form>
+        <label>Equipment ID:</label>
+        <input type="text"id="meter">
+        <label>Equipment Name:</label>
+        <input type="text" id="name">
+        <label>Equipment Price:</label>
+        <input type="text"id="price">
+        <label>Equipment Supplier:</label>
+        <input type="text" id="supplier">
+        <label>Equipment Location</label>
+        <select id="location">
+        	<option value="undefined">Select</option>
+        	<option value="221">Lab 221</option>
+        	<option value="222">Lab 222</option>
+        </select>
+        <label>Equipment Status</label>
+        <select id="status">
+        	<option value="undefined">Select</option>
+        	<option value="borrowed">Borrowed</option>
+        	<option value="availabe">Available</option>
+        	<option value="damaged">Damaged</option>
+        </select>
+
+        <input type ="button" value="submit" onclick="addData()">	        
+     </form>
+</body>
+</html>
+
+<script type="text/javascript">
+	function sendRequest(u){
+		var obj=$.ajax({url:u,async:false});
+		//Convert the JSON string to object
+		var result=$.parseJSON(obj.responseText);		
+		return result;	//return object
+	}
+	function addData(){
+	    var id=$("#id").val();
+		var name =$("#name").val();
+		var supplier = $("#supplier").val();
+		var loc = document.getElementById("location")
+		var location = loc.options[loc.selectedIndex].text;
+		var stat = document.getElementById("status")
+		var status = loc.options[loc.selectedIndex].text;
+		
+		var theUrl="http://cs.ashesi.edu.gh/class2016/lydia-kinyari/phonegap/ajax.php?cmd=1&meter="+meter+"&reading="+reading;
+		// prompt("u",theUrl);
+		var obj=sendRequest(theUrl);		//send request to the above url
+		if(obj.result==1){					//check result
+			$("#message").text("Data submited successfully");		//set div with the description from the result
+			// prompt("u",theUrl);
+			$("#message").css("backgroundColor","green");	                                    	
+			$("#message").show();				//show the div element
+		}else{
+			//show error message
+			$("#message").text("error while submitting data");
+			$("#message").css("backgroundColor","red");
+			$("#message").show();
+			}
+	}
+</script>
+
+
