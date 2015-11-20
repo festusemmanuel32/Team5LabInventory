@@ -1,3 +1,4 @@
+
 <?php
 header('Access-Control-Allow-Origin: *');
 include("adb.php");
@@ -12,5 +13,13 @@ return $this->query($query);
 
     
     }
+
+    function get_supply($id){
+		$str_query="select * from inventory where supplierID=$id";
+		if(!$this->query($str_query)){
+			return false;
+		}	
+		return $this->fetch();
+		
 }
 ?>
