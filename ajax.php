@@ -19,7 +19,26 @@ switch($cmd)
                 echo "mysql_error";
 
 		//return a JSON string to browser when request comes to get description				
-		break;	
+		break;
+	case 2:
+		include("equipment.php");
+		$obj=new equipment();		
+		if($obj->view()){
+			$row=$obj->fetch();					
+			echo '{"result":1,"message":[';
+			while ($row){				
+				echo json_encode($row);				
+				$row = $obj->fetch(); 
+				if ($row){
+					echo ',';
+				}
+			}
+		echo ']}';
+		}else{
+			echo '{"result":0,"message": "Failed"}';
+		}
+		break;
+
 	default:
 }
 ?>
