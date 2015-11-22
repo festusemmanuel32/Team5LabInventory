@@ -24,6 +24,7 @@
 
 </form>
 
+
 <div data-role="footer" style ="background-color:green">
 <h1>Next</h1>
 
@@ -65,6 +66,32 @@ var theUrl="http://cs.ashesi.edu.gh/~csashesi/class2016/festus-jartu/SoftwarePro
 					$("#message").show();
 				}
 			}
+	function view(){
+	var theUrl="http://cs.ashesi.edu.gh/~csashesi/class2016/festus-jartu/SoftwareProject/supplyAjax.phpcmd=2";
+	var obj=sendRequest(theUrl);	
+		//send request to the above url
+	if(obj.result==0){
+alert("the database is empty");
+
+}
+	if(obj.result==1){	
+		alert( "check"+obj.message.length);
+		 
+
+					
+	//alert("hello");
+// alert( "check"+obj.message[1].mn);
+ for(var count=0; count<obj.message.length; count++){
+$("ol").append("<li>" + obj.message[count].itemID +
+ " "+obj.message[count].itemName + 
+ " "+obj.message[count].itemQuant + 
+ " "+obj.message[count].itemPrice + 
+ " "+ obj.message[count].supplier+"</li> " + 
+"</ol>"
+
+);
+}}
+}
 			
 			
 			
