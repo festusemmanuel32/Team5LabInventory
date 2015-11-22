@@ -1,72 +1,12 @@
-<!DOCTYPE html>
 <html>
 <head>
 </head>
 <body>
      <form>
-     <div>
-        <label>Equipment ID:</label>
-        <input type="text"id="meter">
-     </div>
-     <div>
-        <label>Equipment Name:</label>
-        <input type="text" id="name">
-     </div>
-     <div>
-        <label>Equipment Price:</label>
-        <input type="text"id="price">
-     </div>
-     <div>
-        <label>Equipment Supplier:</label>
-        <input type="text" id="supplier">
-     </div>
-     <div>
-        <label>Equipment Location</label>
-        <select id="location">
-        	<option value="undefined">Select</option>
-        	<option value="221">Lab 221</option>
-        	<option value="222">Lab 222</option>
-        </select>
-     </div>
-     <div>
-        <label>Equipment Status</label>
-        <select id="status">
-        	<option value="undefined">Select</option>
-        	<option value="borrowed">Borrowed</option>
-        	<option value="availabe">Available</option>
-        	<option value="damaged">Damaged</option>
-        </select>
-     <div>
-
-        <input type ="button" value="submit" onclick="addData()">	        
+        <a href="addEquipment.html">Add Equipment</a>
+        <a href="viewEquipment.html">View Equipment</a> 
+               
      </form>
 </body>
 </html>
-
-<script type="text/javascript">
-	function sendRequest(u){
-		var obj=$.ajax({url:u,async:false});
-		//Convert the JSON string to object
-		var result=$.parseJSON(obj.responseText);		
-		return result;	//return object
-	}
-	function addData(){
-		prompt("u");
-	    var id=$("#id").val();
-		var name =$("#name").val();
-		var price =$("#price").val();
-		var supplier = $("#supplier").val();
-		var loc = document.getElementById("location");
-		var location = loc.options[loc.selectedIndex].text;
-		var stat = document.getElementById("status");
-		var status = stat.options[stat.selectedIndex].text;
-		prompt("u");
-		alert (location);
-		
-		var theUrl="http://cs.ashesi.edu.gh/class2016/lydia-kinyari/SE/ajax.php?cmd=1&id="+id+"&name="+name+"&price="+price+"&supplier="+supplier+"&location="+location+"&status="+status;
-		 prompt("u",theUrl);
-		var obj=sendRequest(theUrl);		//send request to the above url
-	}
-</script>
-
 
