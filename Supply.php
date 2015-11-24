@@ -22,14 +22,14 @@ return $this->query($query);
 		return $this->fetch();
 		
 }
-  function get_supply($id){
-		$str_query="delete from inventory where supplierID=$id";
-		if(!$this->query($str_query)){
-			return false;
-		}	
-		return $this->fetch();
+//   function get_supply($id){
+// 		$str_query="delete from inventory where supplierID=$id";
+// 		if(!$this->query($str_query)){
+// 			return false;
+// 		}	
+// 		return $this->fetch();
 		
-}
+// }
 }
 
 
