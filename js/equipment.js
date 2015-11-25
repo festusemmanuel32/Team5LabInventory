@@ -27,3 +27,26 @@ function addData(){
 	 prompt("u",theUrl);
 	var obj=sendRequest(theUrl);		//send request to the above url
 }
+function viewEquipment(){
+	var theUrl="http://cs.ashesi.edu.gh/class2016/lydia-kinyari/SE/ajax.php?cmd=2";
+		prompt("u",theUrl);				
+		var obj=sendRequest(theUrl);		//send request to the above url
+		if(obj.result==0){    //check result
+			alert("the database is empty");
+		}
+		if(obj.result==1){	
+			// alert( "check"+obj.message.length);	
+			// $("ol").append("<li>ItemID  ItemName ItemPrice ItemQuantity </li>");				
+			for(var count=0; count<obj.message.length; count++){
+				$("ol").append("<li>"+
+				 " "+obj.message[count].id+
+				 " "+obj.message[count].name+ 
+				 " "+ obj.message[count].price+
+				 " "+obj.message[count].supplier +
+				 " "+obj.message[count].location +
+				 " "+obj.message[count].status +
+				 "</li>"+"</ol>"
+				);				
+				}
+		}
+}
