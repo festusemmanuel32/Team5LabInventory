@@ -1,0 +1,52 @@
+<html>
+<head>
+
+</head>
+<body>
+     <form>
+     <table>
+     <tr>
+         <td><label>Equipment ID:</label></td>
+         <td><input type="text"id="id"></td>
+     </tr>
+     <tr>
+         <td><label>Equipment Name:</label></td>
+         <td><input type="text" id="name"></td>
+     </tr>
+     <tr>
+        <td><label>Equipment Price:</label></td>
+        <td><input type="text"id="price"></td>
+     </tr>
+     <tr>
+        <td><label>Equipment Supplier:</label></td>
+        <td><input type="text" id="supplier"></td>
+     </tr>
+     <tr>
+        <td><label>Equipment Location</label></td>
+        <td><select id="location">
+            <option value="undefined">Select</option>
+            <option value="221">Lab 221</option>
+            <option value="222">Lab 222</option>
+        </select></td>
+     </tr>
+     <tr><td>
+        <label>Equipment Status</label></td>
+        <td><select id="status">
+            <option value="undefined">Select</option>
+            <option value="borrowed">Borrowed</option>
+            <option value="availabe">Available</option>
+            <option value="damaged">Damaged</option>
+        </select></td>
+     </tr>
+    </table>
+        <input type ="button" value="submit" onclick="addData()">           
+     </form>
+
+     <script src="equipment.js" type="text/javascript"> </script>
+     <script src="jquery-2.1.4.min.js"></script>
+
+</body>
+</html>
+
+
+
