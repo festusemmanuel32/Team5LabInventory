@@ -11,25 +11,23 @@ class Supply extends adb{
     echo $query;
 return $this->query($query);
 
-    
     }
 
-    function get_supply($id){
-		$str_query="select * from inventory where supplierID=$id";
+    function get_supply(){
+		$str_query="select * from inventory";
 		if(!$this->query($str_query)){
 			return false;
 		}	
 		return $this->fetch();
 		
 }
-//   function get_supply($id){
-// 		$str_query="delete from inventory where supplierID=$id";
-// 		if(!$this->query($str_query)){
-// 			return false;
-// 		}	
-// 		return $this->fetch();
-		
-// }
+function removeSupplier($id){
+
+    $query="DELETE FROM  `inventory` where supplierID='$id'";      
+    echo $query;
+return $this->query($query);
+
+    }
 }
 
 
