@@ -14,6 +14,15 @@ switch($cmd)
 	$row=$obj->addSupplier($supplierID, $contact, $supplyQuant, $supplierName);
 		//return a JSON string to browser when request comes to get description
 break;
+
+case 3:
+	include("Supply.php");
+	$obj=new Supply();
+	// $id=$_REQUEST['id'];
+	$supplierID=$_GET['id'];
+	$row=$obj->removeSupplier($supplierID);
+
+
 	case 2:
 	include("Supply.php");
 	$obj=new Supply();
