@@ -38,11 +38,6 @@ switch($cmd)
 			echo '{"result":0,"message": "Failed"}';
 		}
 		break;
-	case 3:
-		break;
-	case 4:
-		break;
-
 	default:
 }
 ?>
