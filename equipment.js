@@ -51,20 +51,21 @@ function viewEquipment(){
 		    newCell = newRow.insertCell(5);
 			newCell.innerHTML="Equipment Status";
 
-			$("ol").append("<li>ItemID  ItemName ItemPrice ItemQuantity </li>");				
+			// $("ol").append("<li>ItemID  ItemName ItemPrice ItemQuantity </li>");	
+			alert(obj.message.length);			
 			for(var count=0; count<obj.message.length; count++){
 				var newRow = tbl.insertRow(count+1);
-				var newCell = newRow.insertCell(count);
+				var newCell = newRow.insertCell(0);
 				newCell.innerHTML=obj.message[count].id;
-				var newCell = newRow.insertCell(count);
+				var newCell = newRow.insertCell(1);
 				newCell.innerHTML=obj.message[count].name;
-				var newCell = newRow.insertCell(count);
+				var newCell = newRow.insertCell(2);
 				newCell.innerHTML=obj.message[count].price;
-				var newCell = newRow.insertCell(count);
+				var newCell = newRow.insertCell(3);
 				newCell.innerHTML=obj.message[count].supplier;
-				var newCell = newRow.insertCell(count);
+				var newCell = newRow.insertCell(4);
 				newCell.innerHTML=obj.message[count].location;
-				var newCell = newRow.insertCell(count);
+				var newCell = newRow.insertCell(5);
 				newCell.innerHTML=obj.message[count].status;
 
 
