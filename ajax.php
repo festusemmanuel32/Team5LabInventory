@@ -24,8 +24,10 @@ switch($cmd)
 		include("equipment.php");
 		$obj=new equipment();		
 		if($obj->view()){
-			$row=$obj->fetch();					
+							
 			echo '{"result":1,"message":[';
+			$row=$obj->fetch();
+			echo ',';	
 			while ($row){				
 				echo json_encode($row);				
 				$row = $obj->fetch(); 
