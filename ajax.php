@@ -24,10 +24,27 @@ switch($cmd)
 		include("equipment.php");
 		$obj=new equipment();		
 		if($obj->view()){
-							
+			$row=$obj->fetch();					
 			echo '{"result":1,"message":[';
-			$row=$obj->fetch();
-			echo ',';	
+			while ($row){				
+				echo json_encode($row);				
+				$row = $obj->fetch(); 
+				if ($row){
+					echo ',';
+				}
+			}
+		echo ']}';
+		}else{
+			echo '{"result":0,"message": "Failed"}';
+		}
+		break;
+		case 3:
+		include("equipment.php");
+		$obj=new equipment();
+		$id=$_GET['id'];		
+		if($obj->search($id)){
+			$row=$obj->fetch();					
+			echo '{"result":1,"message":[';
 			while ($row){				
 				echo json_encode($row);				
 				$row = $obj->fetch(); 
