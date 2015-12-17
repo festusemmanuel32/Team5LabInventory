@@ -1,4 +1,10 @@
 <?php
+/**
+ * author: Lydia Kemuma Kinyari
+ * date: 
+ * description: A class to manage the requests sent from the javascript class
+ */
+
 header('Access-Control-Allow-Origin: *');
 $cmd=$_REQUEST['cmd'];
 switch($cmd)
@@ -11,8 +17,7 @@ switch($cmd)
 	    $price=$_GET['price'];
 	    $supplier=$_GET['supplier'];
 	    $location=$_GET['location'];
-	    $status=$_GET['status'];
-	     echo $_GET['id']; 
+	    $status=$_GET['status']; 
 		if($row=$obj->add($id,$name,$price,$supplier,$location,$status))
                 echo '{"result":"1"}';
                 else
@@ -23,8 +28,8 @@ switch($cmd)
 	case 2:
 		include("equipment.php");
 		$obj=new equipment();		
-		if($obj->view()){
-			$row=$obj->fetch();					
+		if($row=$obj->view()){
+			// $row=$obj->fetch();					
 			echo '{"result":1,"message":[';
 			while ($row){				
 				echo json_encode($row);				
@@ -38,12 +43,12 @@ switch($cmd)
 			echo '{"result":0,"message": "Failed"}';
 		}
 		break;
-		case 3:
+	case 3:
 		include("equipment.php");
 		$obj=new equipment();
 		$id=$_GET['id'];		
-		if($obj->search($id)){
-			$row=$obj->fetch();					
+		if($row=$obj->search($id)){
+			// $row=$obj->fetch();					
 			echo '{"result":1,"message":[';
 			while ($row){				
 				echo json_encode($row);				
