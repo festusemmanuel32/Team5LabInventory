@@ -1,7 +1,5 @@
 function sendRequest(u){
-	alert("sendRequest");
 	var obj=$.ajax({url:u,async:false});
-	alert("obj.status");
 	//Convert the JSON string to object
 	var result=$.parseJSON(obj.responseText);		
 	return result;	//return object
@@ -32,14 +30,12 @@ function viewEquipment(){
 		if(obj.result==0){    //check result
 			alert("the database is empty");
 		}
-		if(obj.result==1){	
-			alert( "check"+obj.message.length);	
+		if(obj.result==1){
 			var tbl = document.getElementById("tbl");
 
 			var newRow = tbl.insertRow(0);
 			var newCell = newRow.insertCell(0);
 			newCell.innerHTML="Equipment ID";
-			alert("here");
 			var newCell = newRow.insertCell(1);
 			newCell.innerHTML="Equipment Name";
 			newCell = newRow.insertCell(2);
@@ -49,9 +45,7 @@ function viewEquipment(){
 		    newCell = newRow.insertCell(4);
 			newCell.innerHTML="Equipment Location";
 		    newCell = newRow.insertCell(5);
-			newCell.innerHTML="Equipment Status";
-
-			alert(obj.message.length);			
+			newCell.innerHTML="Equipment Status";		
 			for(var count=0; count<obj.message.length; count++){
 				var newRow = tbl.insertRow(count+1);
 				var newCell = newRow.insertCell(0);
@@ -74,20 +68,18 @@ function viewEquipment(){
 		function searchEquipment(){
 			alert("Searching");
 			var id = document.getElementById("search").value;
-			var theUrl="http://cs.ashesi.edu.gh/class2016/lydia-kinyari/SE/ajax.php?cmd=3?id="+id;
+			var theUrl="http://cs.ashesi.edu.gh/class2016/lydia-kinyari/SE/ajax.php?cmd=3&id="+id;
 			prompt("u",theUrl);				
 			var obj=sendRequest(theUrl);		//send request to the above url
 			if(obj.result==0){    //check result
-				alert("the database is empty");
+				alert("the database is does not contain that eqpt");
 			}
-			if(obj.result==1){	
-				alert( "check"+obj.message.length);	
+			if(obj.result==1){		
 				var tbl = document.getElementById("tbl");
 
 				var newRow = tbl.insertRow(0);
 				var newCell = newRow.insertCell(0);
 				newCell.innerHTML="Equipment ID";
-				alert("here");
 				var newCell = newRow.insertCell(1);
 				newCell.innerHTML="Equipment Name";
 				newCell = newRow.insertCell(2);
@@ -97,9 +89,7 @@ function viewEquipment(){
 			    newCell = newRow.insertCell(4);
 				newCell.innerHTML="Equipment Location";
 			    newCell = newRow.insertCell(5);
-				newCell.innerHTML="Equipment Status";
-
-				alert(obj.message.length);			
+				newCell.innerHTML="Equipment Status";		
 				for(var count=0; count<obj.message.length; count++){
 					var newRow = tbl.insertRow(count+1);
 					var newCell = newRow.insertCell(0);
@@ -115,7 +105,6 @@ function viewEquipment(){
 					var newCell = newRow.insertCell(5);
 					newCell.innerHTML=obj.message[count].status;
 					}
-
 		}
 	}
 	
